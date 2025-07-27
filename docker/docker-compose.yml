@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  anylogic-mcp-server:
+    build: 
+      context: ..
+      dockerfile: docker/Dockerfile
+    environment:
+      - ANYLOGIC_API_KEY=${ANYLOGIC_API_KEY}
+      - ANYLOGIC_CLOUD_URL=${ANYLOGIC_CLOUD_URL:-https://cloud.anylogic.com}
+    volumes:
+      - ../logs:/app/logs
+    restart: unless-stopped
+    stdin_open: true
+    tty: true

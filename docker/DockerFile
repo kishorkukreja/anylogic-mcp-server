@@ -1,0 +1,35 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies and uv
+RUN apt-get update && apt-get install -y \
+    gcc \
+    curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Add uv to PATH
+ENV PATH="/root/.cargo/bin:$PATH"
+
+# Copy project files for better caching
+COPY pyproject.toml uv.lock ./
+
+# Install dependencies with uv
+RUN uv sync --frozen
+
+# Install AnyLogic Cloud client
+RUN uv add https://cloud.anylogic.com/files/api-8.5.0/clients/anylogiccloudclient-8.5.0-py3-none-any.whl
+
+# Copy application code
+COPY . .
+
+# Create non-root user
+RUN useradd -m -u 1000 mcpuser && chown -R mcpuser:mcpuser /app
+USER mcpuser
+
+# Expose port for HTTP transport (if needed later)
+EXPOSE 8000
+
+# Default command
+CMD ["uv", "run", "python", "anylogic_mcp_server.py"]

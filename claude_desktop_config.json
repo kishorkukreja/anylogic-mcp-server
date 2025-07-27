@@ -1,0 +1,38 @@
+{
+  "mcpServers": {
+    "anylogic": {
+      "command": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\fastmcp_anylogic_server_v2.py"],
+      "cwd": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp",
+      "env": {
+        "UV_PROJECT_ENVIRONMENT": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\.venv"
+      }
+    }
+  }
+}
+
+  
+
+  // "anylogic": {
+  //     "command": "python",
+  //     "args": ["C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\fastmcp_anylogic_server_v2.py"],
+  //     "cwd": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp",
+  //     "env": {
+  //       "UV_PROJECT_ENVIRONMENT": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\.venv"
+  //     }
+  //   }
+
+  //    "anylogic": {
+  //     "command": "uv",
+  //     "args": ["run", "python", "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\fastmcp_anylogic_server_v2.py"],
+  //     "cwd": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp",
+  //     "env": {
+  //       "UV_PROJECT_ENVIRONMENT": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\.venv"
+  //     }
+  //   }
+
+  //    "anylogic": {
+  //       "command": "uv",
+  //       "args": ["run", "python", "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\fastmcp_anylogic_server_v2.py"],
+  //       "cwd": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp"
+  //     }
