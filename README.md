@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/kishorkukreja-anylogic-mcp-server-badge.png)](https://mseep.ai/app/kishorkukreja-anylogic-mcp-server)
+
 # AnyLogic MCP Server
 
 A Model Context Protocol (MCP) server for integrating AnyLogic Cloud simulation platform with AI assistants.
