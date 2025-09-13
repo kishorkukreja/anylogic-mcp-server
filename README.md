@@ -30,7 +30,7 @@ A Model Context Protocol (MCP) server for integrating AnyLogic Cloud simulation 
 
 4. Run the server:
    ```bash
-   uv run python anylogic_mcp_server.py
+   uv run python fastmcp_anylogic_server_v2.py
    ```
 
 ## Requirements
