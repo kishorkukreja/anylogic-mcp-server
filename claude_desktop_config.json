@@ -2,10 +2,11 @@
   "mcpServers": {
     "anylogic": {
       "command": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\.venv\\Scripts\\python.exe",
-      "args": ["C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\fastmcp_anylogic_server_v2.py"],
+      "args": ["C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\fastmcp_anylogic_server_stdio_auth.py"],
       "cwd": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp",
       "env": {
-        "UV_PROJECT_ENVIRONMENT": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\.venv"
+        "UV_PROJECT_ENVIRONMENT": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\.venv",
+        "MCP_AUTH_TOKEN": "YOUR_JWT_TOKEN_HERE"
       }
     }
   }
@@ -36,3 +37,16 @@
   //       "args": ["run", "python", "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\fastmcp_anylogic_server_v2.py"],
   //       "cwd": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp"
   //     }
+
+  --latest wala
+   "anylogic": {
+      "command": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\.venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\authenticated_mcp_server.py"
+      ],
+      "env": {
+        "UV_PROJECT_ENVIRONMENT": "C:\\Users\\Kish Kukreja\\OneDrive\\Desktop\\anylogic-mcp\\.venv",
+        "ANYLOGIC_DEVELOPMENT_MODE": "true",
+        "AUTH_TOKEN": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0LWFkbWluIiwic2NvcGUiOiJhbnlsb2dpYzpyZWFkIGFueWxvZ2ljOmV4ZWN1dGUgYW55bG9naWM6YWRtaW4iLCJpYXQiOjE3NTUzNjk4MjguNDg5MTgzNywiZXhwIjoxNzU1MzczNDI4LjQ4OTE4MzcsImlzcyI6ImFueWxvZ2ljLW1jcC1kZXYiLCJhdWQiOiJhbnlsb2dpYy1tY3Atc2VydmVyIn0.dLNwDKtYlhxTIKl0o942aRbcoBBD9NKJvp8Nf3FApnM"
+      }
+    }

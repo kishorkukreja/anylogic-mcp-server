@@ -2,34 +2,34 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies and uv
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     gcc \
     curl \
-    && rm -rf /var/lib/apt/lists/* \
-    && curl -LsSf https://astral.sh/uv/install.sh | sh
+    && rm -rf /var/lib/apt/lists/*
 
-# Add uv to PATH
-ENV PATH="/root/.cargo/bin:$PATH"
+# Create non-root user early and give ownership of /app
+RUN useradd -m -u 1000 mcpuser && chown -R mcpuser:mcpuser /app
 
-# Copy project files for better caching
-COPY pyproject.toml uv.lock ./
+# Switch to non-root user and install uv for this user
+USER mcpuser
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
+    && /home/mcpuser/.local/bin/uv --version
 
-# Install dependencies with uv
-RUN uv sync --frozen
+# Add uv to PATH for mcpuser
+ENV PATH="/home/mcpuser/.local/bin:$PATH"
+
+# Copy application code and change ownership
+COPY --chown=mcpuser:mcpuser . .
+
+# Clean any existing venv and install dependencies
+RUN rm -rf .venv && uv sync
 
 # Install AnyLogic Cloud client
 RUN uv add https://cloud.anylogic.com/files/api-8.5.0/clients/anylogiccloudclient-8.5.0-py3-none-any.whl
 
-# Copy application code
-COPY . .
-
-# Create non-root user
-RUN useradd -m -u 1000 mcpuser && chown -R mcpuser:mcpuser /app
-USER mcpuser
-
-# Expose port for HTTP transport (if needed later)
+# Expose port for HTTP transport
 EXPOSE 8000
 
 # Default command
-CMD ["uv", "run", "python", "anylogic_mcp_server.py"]
+CMD ["uv", "run", "python", "authenticated_mcp_server.py"]
